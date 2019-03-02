@@ -28,8 +28,9 @@ app.use(express.json());
 
 //require("./app/routing/apiRoutes")(app);
 require("./app/routing/htmlRoutes")(app);
+require("./app/routing/apiRoutes")(app);
 
-// =============================================================================
+// ==========================================================================
 // LISTENER
 // The below code effectively "starts" our server
 // =============================================================================
