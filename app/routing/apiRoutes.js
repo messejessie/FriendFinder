@@ -45,6 +45,8 @@ module.exports = function (app) {
         //console.log(friendData)
         res.json(true);
 
+        
+
     });
 
     // ---------------------------------------------------------------------------

@@ -4,7 +4,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>FriendFinder</title>
+  <title> Mouse FriendFinder</title>
 
   <!-- Latest compiled and minified CSS & JS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -37,8 +37,8 @@
     <hr>
 
     <h3><strong>Question 1</strong></h3>
-    <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
-    <select class="chosen-select" id="q1">
+    <h4>Would you say Walt Disney World is the best of the parks.</h4>
+    <select class="chosen-answer" id="one">
       <option value=""></option>
       <option value="1">1 (Strongly Disagree)</option>
       <option value="2">2</option>
@@ -48,8 +48,8 @@
     </select>
 
     <h3><strong>Question 2</strong></h3>
-    <h4>Generally speaking, you rely more on your experience than your imagination.</h4>
-    <select class="chosen-select" id="q2">
+    <h4>Generally speaking, would you say that you enjoy disney.</h4>
+    <select class="chosen-answer" id="two">
       <option value=""></option>
       <option value="1">1 (Strongly Disagree)</option>
       <option value="2">2</option>
@@ -60,8 +60,8 @@
 
 
     <h3><strong>Question 3</strong></h3>
-    <h4>You find it easy to stay relaxed and focused even when there is some pressure.</h4>
-    <select class="chosen-select" id="q3">
+    <h4>Would you say that you feel relaxed or calm at Disney.</h4>
+    <select class="chosen-answer" id="three">
       <option value=""></option>
       <option value="1">1 (Strongly Disagree)</option>
       <option value="2">2</option>
@@ -72,8 +72,8 @@
 
 
     <h3><strong>Question 4</strong></h3>
-    <h4>You rarely do something just out of sheer curiosity.</h4>
-    <select class="chosen-select" id="q4">
+    <h4>You rarely go to Hollywood Studios.</h4>
+    <select class="chosen-answer" id="four">
       <option value=""></option>
       <option value="1">1 (Strongly Disagree)</option>
       <option value="2">2</option>
@@ -84,8 +84,8 @@
 
 
     <h3><strong>Question 5</strong></h3>
-    <h4>People can rarely upset you.</h4>
-    <select class="chosen-select" id="q5">
+    <h4>People and crowds bother you durning peak hours.</h4>
+    <select class="chosen-answer" id="five">
       <option value=""></option>
       <option value="1">1 (Strongly Disagree)</option>
       <option value="2">2</option>
@@ -96,8 +96,8 @@
 
 
     <h3><strong>Question 6</strong></h3>
-    <h4>It is often difficult for you to relate to other people’s feelings.</h4>
-    <select class="chosen-select" id="q6">
+    <h4>It is often that you find yourself drinking around the world in Epcot.</h4>
+    <select class="chosen-answer" id="six">
       <option value=""></option>
       <option value="1">1 (Strongly Disagree)</option>
       <option value="2">2</option>
@@ -108,8 +108,8 @@
 
 
     <h3><strong>Question 7</strong></h3>
-    <h4>In a discussion, truth should be more important than people’s sensitivities.</h4>
-    <select class="chosen-select" id="q7">
+    <h4>In a discussion, do you find youself bringing up disney when every you can.</h4>
+    <select class="chosen-answer" id="seven">
       <option value=""></option>
       <option value="1">1 (Strongly Disagree)</option>
       <option value="2">2</option>
@@ -119,8 +119,8 @@
     </select>
 
     <h3><strong>Question 8</strong></h3>
-    <h4>You rarely get carried away by fantasies and ideas.</h4>
-    <select class="chosen-select" id="q8">
+    <h4>You rarely get fastpasses for your favortie rides.</h4>
+    <select class="chosen-answer" id="eight">
       <option value=""></option>
       <option value="1">1 (Strongly Disagree)</option>
       <option value="2">2</option>
@@ -130,8 +130,8 @@
     </select>
 
     <h3><strong>Question 9</strong></h3>
-    <h4>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</h4>
-    <select class="chosen-select" id="q9">
+    <h4>You think that Animal Kingdom does not get the hype it deserves.</h4>
+    <select class="chosen-answer" id="nine">
       <option value=""></option>
       <option value="1">1 (Strongly Disagree)</option>
       <option value="2">2</option>
@@ -141,8 +141,8 @@
     </select>
 
     <h3><strong>Question 10</strong></h3>
-    <h4>You feel more energetic after spending time with a group of people.</h4>
-    <select class="chosen-select" id="q10">
+    <h4>You feel more energetic the day after visiting the parks.</h4>
+    <select class="chosen-answer" id="ten">
       <option value=""></option>
       <option value="1">1 (Strongly Disagree)</option>
       <option value="2">2</option>
@@ -178,7 +178,7 @@
           <h2 class="modal-title"><strong>Best Match</strong></h2>
         </div>
         <div class="modal-body">
-          <h2 id="match-name"></h2>
+          <h2 id="match-friend"></h2>
           <img id="match-img" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="">
         </div>
         <div class="modal-footer">
@@ -192,17 +192,17 @@
   <script type="text/javascript">
     // Chosen CSS
     var config = {
-      ".chosen-select": {},
-      ".chosen-select-deselect": {
+      ".chosen-answer": {},
+      ".chosen-answer-deselect": {
         allow_single_deselect: true
       },
-      ".chosen-select-no-single": {
+      ".chosen-answer-no-single": {
         disable_search_threshold: 10
       },
-      ".chosen-select-no-results": {
-        no_results_text: "Oops, nothing found!"
+      ".chosen-answer-no-results": {
+        no_results_text: "I'm sorry Mickey could not find you a friend at this time."
       },
-      ".chosen-select-width": {
+      ".chosen-answer-width": {
         width: "95%"
       }
     };
@@ -224,7 +224,7 @@
           }
         });
 
-        $(".chosen-select").each(function() {
+        $(".chosen-answer").each(function() {
 
           if ($(this).val() === "") {
             isValid = false;
@@ -240,16 +240,16 @@
           name: $("#name").val(),
           photo: $("#photo").val(),
           scores: [
-            $("#q1").val(),
-            $("#q2").val(),
-            $("#q3").val(),
-            $("#q4").val(),
-            $("#q5").val(),
-            $("#q6").val(),
-            $("#q7").val(),
-            $("#q8").val(),
-            $("#q9").val(),
-            $("#q10").val()
+            $("#one").val(),
+            $("#two").val(),
+            $("#three").val(),
+            $("#four").val(),
+            $("#five").val(),
+            $("#six").val(),
+            $("#seven").val(),
+            $("#eight").val(),
+            $("#nine").val(),
+            $("#ten").val()
           ]
         };
 
@@ -257,7 +257,7 @@
         $.post("/api/friends", userData, function(data) {
 
           // Grab the result from the AJAX post so that the best match's name and photo are displayed.
-          $("#match-name").text(data.name);
+          $("#match-firend").text(data.name);
           $("#match-img").attr("src", data.photo);
 
           // Show the modal with the best match
@@ -265,7 +265,7 @@
 
         });
       } else {
-        alert("Please fill out all fields before submitting!");
+        alert("Please fill out all mouse fields before submitting. Mickey wants to find the perfect friend for you.");
       }
     });
   </script>
