@@ -44,8 +44,36 @@ module.exports = function (app) {
         // Note the code here. Our "server" will respond to requests and let users know if they have a friend or not.
         // It will do this by sending out the value "true" have a table
         // req.body is available since we're using the body parsing middleware
-     
-      
+        var friends = req.body
+         let diff = [];
+        //console.log(friendData)
+        //res.json(true);
+        let userResponse = friends.scores
+        //computing friends 
+        let matchfriend = "";
+        let matchImage = "";
+       
+        //4 loop needed fo examination of friends 
+        for (let i = 0; i < friends.length; i++) {
+            
+            //let diff = 0;
+            //apparently for loop needed for User response / j
+            for (let j = 0; i < userResponse.length; j++) {
+
+                diff += Math.abs(friends[i].scores[j] - userResponse[j]);
+            };
+        };
+
+        if (diff < totaldiff) {
+            totalDiff = diff
+            matchFriend = friends[i].name;
+            matchImage = friends[i].photo;
+        }
+        //push new user:
+        friends.push(friendData);
+        //send response
+        res.json({ status: 'OK', matchFriend: matchfriend, matchImage: matchImage});
+
     });
 
     // ---------------------------------------------------------------------------
