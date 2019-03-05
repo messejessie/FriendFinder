@@ -9,7 +9,7 @@ var path = require('path');
 
 // Import the list of friend entries
 
-var friends = require('../data/friends.js');
+var friendData = require('../data/friends.js');
 
 // ===============================================================================
 // ROUTING
@@ -27,7 +27,7 @@ module.exports = function (app) {
 
 
     app.get("/api/friends", function (req, res) {
-        res.json(friends);
+        res.json(friendData);
         console.log("I am here");
     });
 
@@ -44,10 +44,10 @@ module.exports = function (app) {
         // Note the code here. Our "server" will respond to requests and let users know if they have a friend or not.
         // It will do this by sending out the value "true" have a table
         // req.body is available since we're using the body parsing middleware
-        var friendData = req.body
+        var friends = req.body
         //console.log(friendData)
         //res.json(true);
-        let userResponse = friendData.scores
+        let userResponse = friends.scores
         //computing friends 
         let matchfriend = ""
         let matchImage = ""
