@@ -2,14 +2,14 @@
 // LOAD DATA
 // We are linking our routes to a series of "data" sources.
 // These data sources hold arrays of information on table-data, waitinglist, etc.
-// ===============================================================================let path = require("path");let friendData = require("../data/friends");
+// ===============================================================================let path = require("path");let friendData = require("../data/friendData");
 
 // Pull in required dependencies
-var path = require('path');
+let path = require('path');
 
 // Import the list of friend entries
 
-var friendData = require('../data/friends.js');
+let friendData = require('../data/friendData.js');
 
 // ===============================================================================
 // ROUTING
@@ -26,7 +26,7 @@ module.exports = function (app) {
     });
 
 
-    app.get("/api/friends", function (req, res) {
+    app.get("/api/friendData", function (req, res) {
         res.json(friendData);
         console.log("I am here");
     });
@@ -40,39 +40,44 @@ module.exports = function (app) {
     // Then the server saves the data to the friendArray array)
     // ---------------------------------------------------------------------------
 
-    app.post("/api/friends", function (req, res) {
+    app.post("/api/friendData", function (req, res) {
         // Note the code here. Our "server" will respond to requests and let users know if they have a friend or not.
         // It will do this by sending out the value "true" have a table
         // req.body is available since we're using the body parsing middleware
-        var friends = req.body
-         let diff = [];
+        console.log("i hate JS")
+        let userResponse = req.body
+        let diff = [];
         //console.log(friendData)
         //res.json(true);
-        let userResponse = friends.scores
-        //computing friends 
+        let arrayData = friendData.scores
+        //computing friendData 
         let matchfriend = "";
         let matchImage = "";
-       
-        //4 loop needed fo examination of friends 
-        for (let i = 0; i < friends.length; i++) {
-            
+        let totaldiff = 10000
+        //4 loop needed fo examination of friendData 
+        for (let i = 0; i < arrayData.length; i++) {
+            console.log(i);
             //let diff = 0;
             //apparently for loop needed for User response / j
-            for (let j = 0; i < userResponse.length; j++) {
+            for (let j = 0; j < userResponse.length; j++) {
 
-                diff += Math.abs(friends[i].scores[j] - userResponse[j]);
+                diff += Math.abs(userResponse[j].scores[j] - arrayData[j]);
+
             };
-        };
 
-        if (diff < totaldiff) {
-            totalDiff = diff
-            matchFriend = friends[i].name;
-            matchImage = friends[i].photo;
-        }
-        //push new user:
-        friends.push(friendData);
-        //send response
-        res.json({ status: 'OK', matchFriend: matchfriend, matchImage: matchImage});
+            if (diff < totaldiff) {
+                totaldiff = diff;
+                matchFriend = friendData[i].name;
+                matchImage = friendData[i].photo;
+
+
+                //push new user:
+                friendData.push(friendData);
+                //send response
+                res.json({ status: 'OK', matchFriend: matchfriend, matchImage: matchImage });
+            }
+
+        };
 
     });
 
